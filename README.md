@@ -24,11 +24,10 @@
 ## 技术栈
 
 - Python 版本建议：3.11+  
-- 后端：FastAPI, SQLModel（基于 SQLAlchemy + Pydantic）  
+- 后端：FastAPI  
 - 认证：bcrypt / passlib, PyJWT  
 - 前端：Streamlit  
-- 数据库（开发）：SQLite；生产可换 PostgreSQL / MySQL  
-- 测试：pytest, httpx  
+- 数据库（开发）：SQLite
 
 ## 快速开始
 
