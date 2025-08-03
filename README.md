@@ -38,5 +38,5 @@ git clone <你的仓库地址> userlab
 cd userlab
 python -m venv venv
 source venv/bin/activate        # Mac/Linux
-poetry install
+pip install -r requirements.txt
 ```

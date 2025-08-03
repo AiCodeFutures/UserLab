@@ -60,7 +60,6 @@ UserLab 是一个面向初学者的用户管理系统教学平台，其目标是
 userlab/
 ├── app.py           # FastAPI 应用和路由
 ├── auth.py          # 密码哈希、令牌生成和验证函数
-├── models.py        # SQLAlchemy 用户模型
 ├── database.py      # 数据库连接和表创建
 ├── frontend.py      # Streamlit 应用入口
 ├── pyproject.toml   # Poetry 管理的依赖列表
@@ -71,7 +70,6 @@ userlab/
 
 - app.py：定义 FastAPI 实例和三个基础路由：/register、/login、/me（返回当前登录用户）；
 - auth.py：包含两个核心函数：get_password_hash() 利用 hashlib.pbkdf2_hmac 对密码进行哈希；create_access_token() 使用 jwt.encode 生成令牌；同时提供 verify_token() 用于验证令牌；
-- models.py：定义一个简单的 User 模型（id、username、email、hashed_password）；
 - database.py：创建 SQLite 连接和用户表；
 - frontend.py：使用 Streamlit 创建注册、登录和显示当前用户信息的页面；
 - requirements.txt：列出主要依赖，如 fastapi、uvicorn、passlib[bcrypt]、streamlit 等。
