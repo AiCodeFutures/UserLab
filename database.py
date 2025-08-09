@@ -41,12 +41,16 @@ def create_user(
     db.commit()
 
 
-def get_hashed_password(db: sqlite3.Connection, username: str) -> str | None:
-    """根据用户名获取存储的哈希密码"""
+def get_user_by_login(db: sqlite3.Connection, login_identifier: str):
+    """根据登录标识（用户名或邮箱）获取用户完整信息"""
     cursor = db.cursor()
-    cursor.execute("SELECT hashed_password FROM users WHERE username = ?", (username,))
-    row = cursor.fetchone()
-    return row["hashed_password"] if row else None
+    if "@" in login_identifier:
+        # 假设是邮箱
+        cursor.execute("SELECT * FROM users WHERE email = ?", (login_identifier,))
+    else:
+        # 假设是用户名
+        cursor.execute("SELECT * FROM users WHERE username = ?", (login_identifier,))
+    return cursor.fetchone()
 
 
 def get_user(db: sqlite3.Connection, username: str):
